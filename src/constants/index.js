@@ -204,7 +204,7 @@ const projects = [
             },
         ],
         image: iseclubwebsite,
-        source_code_link: "https://nusiseclub.com",
+        source_code_link: "https://github.com/clubisenus/iseWebsiteV2",
     },
     {
         name: "AIS Web Portal",
@@ -246,7 +246,7 @@ const projects = [
             },
         ],
         image: MWH,
-        source_code_link: "https://h4-g-submission.vercel.app/",
+        source_code_link: "https://github.com/johngao122/H4G-Submission",
     },
 ];
 
