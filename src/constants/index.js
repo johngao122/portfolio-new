@@ -22,6 +22,7 @@ import {
     discreteevent,
     iseclubwebsite,
     AIS,
+    EcoLens,
     MWH,
 } from "../assets";
 
@@ -247,6 +248,44 @@ const projects = [
         ],
         image: MWH,
         source_code_link: "https://github.com/johngao122/H4G-Submission",
+    },
+    {
+        name: "EcoLens",
+        description:
+            "A chrome extension that provides real-time environmental data for food items that users want to buy and suggests alternative products.",
+        tags: [
+            {
+                name: "chromium",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "FastAPI",
+                color: "green-text-gradient",
+            },
+            {
+                name: "MySQL",
+                color: "pink-text-gradient",
+            },
+        ],
+        image: EcoLens,
+        source_code_link: "https://github.com/johngao122/LifeHack-2025",
+    },
+    {
+        name: "InsureBook",
+        description:
+            "An application that allows insurance agents to manage their clients and policies.",
+        tags: [
+            {
+                name: "java",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "javafx",
+                color: "green-text-gradient",
+            },
+        ],
+        image: java,
+        source_code_link: "https://github.com/AY2425S2-CS2103-F08-2/tp",
     },
 ];
 

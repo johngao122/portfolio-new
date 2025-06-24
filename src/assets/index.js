@@ -34,6 +34,7 @@ import discreteevent from "./discreteevent.png";
 import iseclubwebsite from "./iseclub.png";
 import AIS from "./AIS.png";
 import MWH from "./MWH.png";
+import EcoLens from "./EcoLens.png";
 
 export {
     logo,
@@ -69,4 +70,5 @@ export {
     iseclubwebsite,
     AIS,
     MWH,
+    EcoLens,
 };
