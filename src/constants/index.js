@@ -121,18 +121,7 @@ const experiences = [
             "Developed customized evaluations to track progress and provide targeted feedback on Python and App Inventor concepts.",
         ],
     },
-    {
-        title: "Software Engineer",
-        company_name: "DNDTS Pte Ltd",
-        icon: dndts,
-        iconBg: "#383E56",
-        date: "May 2024 - Aug 2024",
-        points: [
-            "Automated HR processes by developing a Telegram bot for streamlined operations.",
-            "Built a batch QR code scanner to efficiently register repaired phones into the system.",
-            "Optimized workflows, reducing manual effort and improving efficiency.",
-        ],
-    },
+
     {
         title: "Web Developer",
         company_name: "NUS Industrial & Systems Engineering Club",
