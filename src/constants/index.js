@@ -24,6 +24,7 @@ import {
     AIS,
     EcoLens,
     MWH,
+    Kobae,
 } from "../assets";
 
 export const navLinks = [
@@ -135,7 +136,7 @@ const experiences = [
         ],
     },
     {
-        title: "Frontend Developer",
+        title: "Software Engineer",
         company_name: "Centre of Excellence for Next Generation Ports",
         icon: c4ngp,
         iconBg: "#E6DEDD",
@@ -275,6 +276,35 @@ const projects = [
         ],
         image: java,
         source_code_link: "https://github.com/AY2425S2-CS2103-F08-2/tp",
+    },
+    {
+        name: "Kobae",
+        description:
+            "A metric-less professional networking platform for aspiring students",
+        tags: [
+            {
+                name: "flutter",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "firebase",
+                color: "green-text-gradient",
+            },
+            {
+                name: "postgres",
+                color: "pink-text-gradient",
+            },
+            {
+                name: "springboot",
+                color: "pink-text-gradient",
+            },
+            {
+                name: "java",
+                color: "pink-text-gradient",
+            },
+        ],
+        image: Kobae,
+        source_code_link: "https://www.kobaeapp.com/",
     },
 ];
 

@@ -35,6 +35,7 @@ import iseclubwebsite from "./iseclub.png";
 import AIS from "./AIS.png";
 import MWH from "./MWH.png";
 import EcoLens from "./EcoLens.png";
+import Kobae from "./kobae.png";
 
 export {
     logo,
@@ -71,4 +72,5 @@ export {
     AIS,
     MWH,
     EcoLens,
+    Kobae,
 };
