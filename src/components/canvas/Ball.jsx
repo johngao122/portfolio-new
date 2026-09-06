@@ -37,6 +37,16 @@ const Ball = (props) => {
     );
 };
 
+// Ball intended to be placed inside a shared parent Canvas.
+// `position` positions it within that scene.
+const BallItem = ({ imgUrl, position }) => {
+    return (
+        <group position={position}>
+            <Ball imgUrl={imgUrl} />
+        </group>
+    );
+};
+
 const BallCanvas = ({ icon }) => {
     return (
         <Canvas
@@ -54,4 +64,5 @@ const BallCanvas = ({ icon }) => {
     );
 };
 
+export { Ball, BallItem };
 export default BallCanvas;

@@ -47,12 +47,14 @@ const About = () => {
                 variants={fadeIn("", "", 0.1, 1)}
                 className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
             >
-                I'm a skilled software developer with experience in TypeScript
-                and Java, and expertise in frameworks like React, Node.js,
-                Spring Boot and Three.js. I'm a quick learner and collaborate
-                closely with clients to create efficient, scalable, and
-                user-friendly solutions that solve real-world problems. Let's
-                work together to bring your ideas to life!
+                I'm a software engineer focused on AI platforms, backend, and
+                distributed systems. I work across Java, Go, Python, and
+                TypeScript, with frameworks like Spring Boot, FastAPI, React,
+                and Next.js, and infrastructure like Kubernetes, Docker, Kafka,
+                and Azure. Currently building AI serving and observability
+                tooling at SAP, I care about reliable, scalable systems that
+                hold up under real-world load. Let's build something great
+                together!
             </motion.p>
 
             <div className="mt-20 flex flex-wrap gap-10">

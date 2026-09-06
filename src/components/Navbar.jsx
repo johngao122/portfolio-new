@@ -51,7 +51,7 @@ const Navbar = () => {
                         John &nbsp;
                         <span className="sm:block hidden">
                             {" "}
-                            | Software Developer
+                            | Software Engineer
                         </span>
                     </p>
                 </Link>

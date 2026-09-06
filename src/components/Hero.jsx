@@ -21,11 +21,11 @@ const Hero = () => {
                         Hi, I'm <span className="text-red-500">John</span>
                     </h1>
                     <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-                        I'm a skilled software developer with expertise in{" "}
+                        I build AI platforms and scalable backends.{" "}
                         <br className="sm:block hidden" />
-                        TypeScript, JavaScript, React, Node.js, and Three.js,
-                        building <br className="sm:block hidden" />
-                        scalable, efficient, and user-friendly solutions.
+                        Working with Java, Go, Python, Spring Boot, and{" "}
+                        <br className="sm:block hidden" />
+                        Kubernetes to ship reliable, high-performance systems.
                     </p>
                 </div>
             </div>

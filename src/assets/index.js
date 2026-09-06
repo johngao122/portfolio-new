@@ -13,7 +13,6 @@ import figma from "./tech/figma.png";
 import git from "./tech/git.png";
 import html from "./tech/html.png";
 import javascript from "./tech/javascript.png";
-import mongodb from "./tech/mongodb.png";
 import nodejs from "./tech/nodejs.png";
 import reactjs from "./tech/reactjs.png";
 import redux from "./tech/redux.png";
@@ -21,11 +20,24 @@ import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
 import java from "./tech/java.png";
+import go from "./tech/go.png";
+import python from "./tech/python.png";
+import kubernetes from "./tech/kubernetes.png";
+import springboot from "./tech/springboot.png";
+import kafka from "./tech/kafka.png";
+import nextjs from "./tech/nextjs.png";
+import fastapi from "./tech/fastapi.png";
+import flask from "./tech/flask.png";
+import postgresql from "./tech/postgresql.png";
+import neo4j from "./tech/neo4j.png";
+import redis from "./tech/redis.png";
+import azure from "./tech/azure.png";
 
 import codinglab from "./company/codinglab.png";
 import dndts from "./company/dndts.png";
 import iseclub from "./company/iseclub.png";
 import c4ngp from "./company/c4ngp.png";
+import sap from "./company/sap.png";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -36,6 +48,9 @@ import AIS from "./AIS.png";
 import MWH from "./MWH.png";
 import EcoLens from "./EcoLens.png";
 import Kobae from "./kobae.png";
+import ISEBuddy from "./isebuddy.png";
+import Mittens from "./mittens.png";
+import ConvSearch from "./convsearch.png";
 
 export {
     logo,
@@ -53,17 +68,29 @@ export {
     html,
     javascript,
     java,
-    mongodb,
     nodejs,
     reactjs,
     redux,
     tailwind,
     typescript,
     threejs,
+    go,
+    python,
+    kubernetes,
+    springboot,
+    kafka,
+    nextjs,
+    fastapi,
+    flask,
+    postgresql,
+    neo4j,
+    redis,
+    azure,
     codinglab,
     dndts,
     iseclub,
     c4ngp,
+    sap,
     carrent,
     jobit,
     tripguide,
@@ -73,4 +100,7 @@ export {
     MWH,
     EcoLens,
     Kobae,
+    ISEBuddy,
+    Mittens,
+    ConvSearch,
 };

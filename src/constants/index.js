@@ -9,7 +9,6 @@ import {
     redux,
     tailwind,
     nodejs,
-    mongodb,
     git,
     figma,
     docker,
@@ -18,13 +17,29 @@ import {
     codinglab,
     dndts,
     c4ngp,
+    sap,
     java,
+    go,
+    python,
+    kubernetes,
+    springboot,
+    kafka,
+    nextjs,
+    fastapi,
+    flask,
+    postgresql,
+    neo4j,
+    redis,
+    azure,
     discreteevent,
     iseclubwebsite,
     AIS,
     EcoLens,
     MWH,
     Kobae,
+    ISEBuddy,
+    Mittens,
+    ConvSearch,
 } from "../assets";
 
 export const navLinks = [
@@ -56,12 +71,16 @@ const services = [
 
 const technologies = [
     {
-        name: "HTML 5",
-        icon: html,
+        name: "Java",
+        icon: java,
     },
     {
-        name: "CSS 3",
-        icon: css,
+        name: "Go",
+        icon: go,
+    },
+    {
+        name: "Python",
+        icon: python,
     },
     {
         name: "JavaScript",
@@ -72,24 +91,68 @@ const technologies = [
         icon: typescript,
     },
     {
+        name: "Spring Boot",
+        icon: springboot,
+    },
+    {
         name: "React JS",
         icon: reactjs,
     },
     {
-        name: "Java",
-        icon: java,
-    },
-    {
-        name: "Tailwind CSS",
-        icon: tailwind,
+        name: "Next JS",
+        icon: nextjs,
     },
     {
         name: "Node JS",
         icon: nodejs,
     },
     {
-        name: "MongoDB",
-        icon: mongodb,
+        name: "FastAPI",
+        icon: fastapi,
+    },
+    {
+        name: "Flask",
+        icon: flask,
+    },
+    {
+        name: "Kubernetes",
+        icon: kubernetes,
+    },
+    {
+        name: "Docker",
+        icon: docker,
+    },
+    {
+        name: "Kafka",
+        icon: kafka,
+    },
+    {
+        name: "PostgreSQL",
+        icon: postgresql,
+    },
+    {
+        name: "Neo4j",
+        icon: neo4j,
+    },
+    {
+        name: "Redis",
+        icon: redis,
+    },
+    {
+        name: "Azure",
+        icon: azure,
+    },
+    {
+        name: "HTML 5",
+        icon: html,
+    },
+    {
+        name: "CSS 3",
+        icon: css,
+    },
+    {
+        name: "Tailwind CSS",
+        icon: tailwind,
     },
     {
         name: "Three JS",
@@ -103,26 +166,44 @@ const technologies = [
         name: "figma",
         icon: figma,
     },
-    {
-        name: "docker",
-        icon: docker,
-    },
 ];
 
 const experiences = [
     {
-        title: "Coding Educator",
-        company_name: "Coding Lab",
-        icon: codinglab,
-        iconBg: "#383E56",
-        date: "Nov 2023 - Jan 2024, Dec 2024 - Jan 2025",
+        title: "AI Engineer Intern",
+        company_name: "SAP — Personalized Recommendation Team",
+        icon: sap,
+        iconBg: "#E6DEDD",
+        date: "Jul 2026 - Present",
         points: [
-            "Taught Python to secondary school students, focusing on fundamentals, problem-solving, and real-world applications.",
-            "Designed interactive lessons with tailored tutorials and assessments.",
-            "Developed customized evaluations to track progress and provide targeted feedback on Python and App Inventor concepts.",
+            "Improved platform test coverage for Tabular Orchestration by 20%, strengthening reliability of tabular AI model deployment and inference validation and preparing the service for general availability.",
+            "Implemented a fan-out pagination strategy for additional context retrieval in tabular AI models, improving retrieval efficiency by 30% for large-scale queries.",
         ],
     },
-
+    {
+        title: "AI Platform Engineer Intern",
+        company_name: "SAP AI Core",
+        icon: sap,
+        iconBg: "#E6DEDD",
+        date: "Jan 2026 - Jun 2026",
+        points: [
+            "Built and maintained the LLM Access performance and SLO observability dashboards, instrumenting custom metrics across 15+ endpoints in the LLM proxy and serving stack.",
+            "Extended SLO observability with a cross-cluster sync pipeline spanning 20+ clusters and automated Postgres backup/restore for the performance dashboard, safeguarding historical metrics and improving reliability.",
+            "Participated in releasing and setting up the serving of proxied and open-source models within the cluster, expanding the range of models available through the LLM Access platform.",
+        ],
+    },
+    {
+        title: "Software Engineer",
+        company_name: "Centre of Excellence in Modelling and Simulation",
+        icon: c4ngp,
+        iconBg: "#E6DEDD",
+        date: "Dec 2024 - Present",
+        points: [
+            "Designed and deployed a scalable Flask and Next.js full stack application to power a real-time vessel tracking platform, aligning with large-scale, high-performance system design.",
+            "Transformed monthly refresh cycles into hourly updates by building ingestion pipelines, optimizing data efficiency and enabling real-time insights for faster, data-driven decision-making.",
+            "Automated CI/CD workflows with Docker and testing, reducing deployment cycles by 50% and contributing reusable, production-ready release processes.",
+        ],
+    },
     {
         title: "Web Developer",
         company_name: "NUS Industrial & Systems Engineering Club",
@@ -136,24 +217,142 @@ const experiences = [
         ],
     },
     {
-        title: "Software Engineer",
-        company_name: "Centre of Excellence for Next Generation Ports",
-        icon: c4ngp,
-        iconBg: "#E6DEDD",
-        date: "Dec 2024 - Present",
+        title: "Coding Educator",
+        company_name: "Coding Lab",
+        icon: codinglab,
+        iconBg: "#383E56",
+        date: "Nov 2023 - Jan 2024, Dec 2024 - Jan 2025",
         points: [
-            "Developed a dynamic Next.js website to display vessel data via AIS API integration, ensuring seamless user interaction.",
-            "Implemented interactive tables with time-range filtering and sorting for enhanced usability.",
-            "Integrated map visualization for real-time vessel tracking and data engagement.",
-            "Optimized API performance and data rendering to reduce latency for large-scale maritime data.",
-            "Built an accessible, responsive, and intuitive platform for stakeholders requiring real-time insights.",
+            "Taught Python to secondary school students, focusing on fundamentals, problem-solving, and real-world applications.",
+            "Designed interactive lessons with tailored tutorials and assessments.",
+            "Developed customized evaluations to track progress and provide targeted feedback on Python and App Inventor concepts.",
         ],
     },
 ];
 
 const testimonials = [];
 
+const accolades = [
+    {
+        type: "Award",
+        title: "Hack4Good — Top 10",
+        issuer: "NUS Developer Student Clubs Hackathon",
+        year: "2025",
+    },
+    {
+        type: "Award",
+        title: "LifeHack — Top 10",
+        issuer: "NUS Students' Computing Club",
+        year: "2025",
+    },
+    {
+        type: "Certification",
+        title: "Google Advanced Data Analytics",
+        issuer: "Google",
+        year: "",
+    },
+    {
+        type: "Certification",
+        title: "IBM DevOps and Software Engineering",
+        issuer: "IBM",
+        year: "",
+    },
+];
+
 const projects = [
+    {
+        name: "Kobae",
+        description:
+            "A scalable professional networking platform for aspiring students. Engineered a Spring Boot backend handling 10,000 concurrent requests at ~200ms average API response times, backed by PostgreSQL, Neo4j, and Redis caching for reliable high-performance results validated during alpha testing.",
+        tags: [
+            {
+                name: "springboot",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "postgres",
+                color: "green-text-gradient",
+            },
+            {
+                name: "neo4j",
+                color: "pink-text-gradient",
+            },
+            {
+                name: "redis",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "flutter",
+                color: "green-text-gradient",
+            },
+        ],
+        image: Kobae,
+        source_code_link: "https://www.kobaeapp.com/",
+    },
+    {
+        name: "Mittens",
+        description:
+            "An IntelliJ IDEA plugin and Next.js visualization suite for TikTok's Knit dependency injection framework, built at TikTok TechJam 2025. Achieves 94%+ detection accuracy with under 5% false positives across dependency graphs of 1,000+ nodes, rendering real-time force-directed graphs in Kotlin, React, and D3.js over Server-Sent Events to surface circular dependencies directly in the IDE.",
+        tags: [
+            {
+                name: "kotlin",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "nextjs",
+                color: "green-text-gradient",
+            },
+            {
+                name: "d3js",
+                color: "pink-text-gradient",
+            },
+        ],
+        image: Mittens,
+        source_code_link: "https://github.com/johngao122/Mittens",
+    },
+    {
+        name: "Conversational Shopping Search Agent",
+        description:
+            "A deterministic, fully offline conversational product-search agent for TikTok TechJam 2026 (Track 4) that finds a customer's target product within ten turns through clarifying questions and progressive re-ranking. Reaches a 0.969 technical score on 200 evaluation sessions (HitRate@10 1.00, MRR 0.968, 2.07 mean turns) with zero LLM calls on the scored path.",
+        tags: [
+            {
+                name: "python",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "ai-agent",
+                color: "green-text-gradient",
+            },
+            {
+                name: "retrieval",
+                color: "pink-text-gradient",
+            },
+        ],
+        image: ConvSearch,
+        source_code_link:
+            "https://github.com/johngao122/techjam-conversational-search",
+    },
+    {
+        name: "ISEBuddy",
+        description:
+            "A reusable document-analytics system that processes 500+ files to automate knowledge extraction, cutting manual retrieval time by 80% and preparation time by 60% to accelerate high-value content creation.",
+        tags: [
+            {
+                name: "python",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "document-analytics",
+                color: "green-text-gradient",
+            },
+            {
+                name: "automation",
+                color: "pink-text-gradient",
+            },
+        ],
+        image: ISEBuddy,
+        source_code_link: "https://github.com/johngao122/ISEBuddy",
+    },
     {
         name: "Discrete Event Simulator",
         description:
@@ -277,35 +476,13 @@ const projects = [
         image: java,
         source_code_link: "https://github.com/AY2425S2-CS2103-F08-2/tp",
     },
-    {
-        name: "Kobae",
-        description:
-            "A metric-less professional networking platform for aspiring students",
-        tags: [
-            {
-                name: "flutter",
-                color: "blue-text-gradient",
-            },
-            {
-                name: "firebase",
-                color: "green-text-gradient",
-            },
-            {
-                name: "postgres",
-                color: "pink-text-gradient",
-            },
-            {
-                name: "springboot",
-                color: "pink-text-gradient",
-            },
-            {
-                name: "java",
-                color: "pink-text-gradient",
-            },
-        ],
-        image: Kobae,
-        source_code_link: "https://www.kobaeapp.com/",
-    },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export {
+    services,
+    technologies,
+    experiences,
+    testimonials,
+    accolades,
+    projects,
+};
