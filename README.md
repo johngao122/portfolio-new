@@ -1,6 +1,6 @@
-# 3D Portfolio
+# 3D Portfolio — Cleared for Takeoff
 
-A modern 3D portfolio website built with React, Three.js, and TailwindCSS. Features interactive 3D elements, smooth animations, and a responsive design.
+A travel-themed 3D portfolio built with React, Three.js and Vite. Scrolling flies a cel-shaded plane off a floating island, up to a globe of local drinks from every place I've been, then through a bar where each job is poured, a baggage carousel of projects, and an arrivals hall with a postcard contact form.
 
 ## 🌟 Features
 
@@ -50,12 +50,12 @@ npm install
 yarn install
 ```
 
-3. Create a `.env` file in the root directory and add your EmailJS credentials:
+3. Create a `.env` file in the root directory and add your EmailJS credentials (used by the postcard form):
 
 ```env
-VITE_APP_EMAILJS_SERVICE_ID=your_service_id
-VITE_APP_EMAILJS_TEMPLATE_ID=your_template_id
-VITE_APP_EMAILJS_PUBLIC_KEY=your_public_key
+VITE_EMAILJS_RECEIVERID=your_service_id
+VITE_EMAILJS_TEMPLATEID=your_template_id
+VITE_EMAILJS_USERID=your_public_key
 ```
 
 4. Start the development server
@@ -89,6 +89,13 @@ yarn build
 ├── public/         # Public assets
 └── ...config files
 ```
+
+## ✈️ The travel world (`src/travel/`)
+
+-   `TravelPortfolio.jsx` renders the page overlays and starts the 3D world
+-   `engine.js` builds the scenes (island, globe, lounge, carousel, arrivals) and drives the scroll camera
+-   `data.js` holds the destinations: each stop has a drink, a note, a label `style`, and optional `when` / `verdict` fields that appear on the card once filled in
+-   Experience and projects come straight from `src/constants/index.js`, so editing those updates the bar and the baggage carousel
 
 ## 🎨 Customization
 

@@ -180,13 +180,14 @@ const technologies = [
 const experiences = [
     {
         title: "AI Engineer Intern",
-        company_name: "SAP — Personalized Recommendation Team",
+        company_name: "SAP — Tabular AI Team",
         icon: sap,
         iconBg: "#E6DEDD",
         date: "Jul 2026 - Present",
         points: [
-            "Improved platform test coverage for Tabular Orchestration by 20%, strengthening reliability of tabular AI model deployment and inference validation and preparing the service for general availability.",
-            "Implemented a fan-out pagination strategy for additional context retrieval in tabular AI models, improving retrieval efficiency by 30% for large-scale queries.",
+            "Implemented context selection for the RPT Playground (rpt.cloud.sap), raising the context users can include in tabular AI queries from 2,048 to 65K rows (32x).",
+            "Raised Tabular Orchestration test coverage by 20%, hardening the reliability of tabular AI model deployment and inference validation ahead of general availability.",
+            "Designed a fan-out pagination strategy for context retrieval in tabular AI models, improving retrieval efficiency by 30% on large-scale queries.",
         ],
     },
     {
@@ -196,9 +197,9 @@ const experiences = [
         iconBg: "#E6DEDD",
         date: "Jan 2026 - Jun 2026",
         points: [
-            "Built and maintained the LLM Access performance and SLO observability dashboards, instrumenting custom metrics across 15+ endpoints in the LLM proxy and serving stack.",
-            "Extended SLO observability with a cross-cluster sync pipeline spanning 20+ clusters and automated Postgres backup/restore for the performance dashboard, safeguarding historical metrics and improving reliability.",
-            "Participated in releasing and setting up the serving of proxied and open-source models within the cluster, expanding the range of models available through the LLM Access platform.",
+            "Built the LLM Access performance and SLO observability dashboards, instrumenting custom metrics across 15+ endpoints in the LLM proxy and model-serving stack.",
+            "Built a cross-cluster SLO sync pipeline spanning 20+ clusters and automated Postgres backup/restore, adding disaster resilience for historical performance metrics.",
+            "Helped roll out in-cluster serving of proxied and open-source models, expanding the LLM Access platform's catalogue by 20+ models.",
         ],
     },
     {
@@ -208,9 +209,9 @@ const experiences = [
         iconBg: "#E6DEDD",
         date: "Dec 2024 - Present",
         points: [
-            "Designed and deployed a scalable Flask and Next.js full stack application to power a real-time vessel tracking platform, aligning with large-scale, high-performance system design.",
-            "Transformed monthly refresh cycles into hourly updates by building ingestion pipelines, optimizing data efficiency and enabling real-time insights for faster, data-driven decision-making.",
-            "Automated CI/CD workflows with Docker and testing, reducing deployment cycles by 50% and contributing reusable, production-ready release processes.",
+            "Designed and deployed a Flask and Next.js full-stack platform for real-time vessel tracking.",
+            "Built data ingestion pipelines that cut refresh cycles from monthly to hourly, enabling near-real-time insights for decision-makers.",
+            "Automated CI/CD with Docker and automated testing, cutting deployment cycle time by 50% through reusable, production-ready release pipelines.",
         ],
     },
     {
@@ -272,7 +273,7 @@ const projects = [
     {
         name: "Kobae",
         description:
-            "A scalable professional networking platform for aspiring students. Engineered a Spring Boot backend handling 10,000 concurrent requests at ~200ms average API response times, backed by PostgreSQL, Neo4j, and Redis caching for reliable high-performance results validated during alpha testing.",
+            "A professional networking platform for aspiring students. Engineered a Spring Boot backend sustaining 10,000 concurrent requests at a 200ms average API response time under heavy load, with a data layer across PostgreSQL, Neo4j and Redis caching that keeps latency low at scale, validated during alpha testing.",
         tags: [
             {
                 name: "springboot",
@@ -301,7 +302,7 @@ const projects = [
     {
         name: "Mittens",
         description:
-            "An IntelliJ IDEA plugin and Next.js visualization suite for TikTok's Knit dependency injection framework, built at TikTok TechJam 2025. Achieves 94%+ detection accuracy with under 5% false positives across dependency graphs of 1,000+ nodes, rendering real-time force-directed graphs in Kotlin, React, and D3.js over Server-Sent Events to surface circular dependencies directly in the IDE.",
+            "An IntelliJ IDEA plugin and Next.js visualization suite for TikTok's Knit dependency injection framework, built at TikTok TechJam 2025. Achieves 94%+ detection accuracy and under 5% false positives across dependency graphs of 1,000+ nodes, with real-time force-directed graphs in Kotlin, Next.js, React and D3.js over Server-Sent Events that surface circular dependencies and ambiguous providers directly in the IDE.",
         tags: [
             {
                 name: "kotlin",
@@ -344,7 +345,7 @@ const projects = [
     {
         name: "ISEBuddy",
         description:
-            "A reusable document-analytics system that processes 500+ files to automate knowledge extraction, cutting manual retrieval time by 80% and preparation time by 60% to accelerate high-value content creation.",
+            "A reusable document-processing pipeline over 500+ files that automates knowledge extraction, reducing manual retrieval time by 80% and cutting preparation time by 60%.",
         tags: [
             {
                 name: "python",
