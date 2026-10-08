@@ -22,7 +22,7 @@ const BAG_COLORS = [
 ];
 const shortDates = (d) => {
   const parts = d.split(/\s*[-–—,]\s*/).filter(Boolean);
-  const fmt = (p) => (/present/i.test(p) ? 'NOW' : p.replace(/^(\w{3})\w*\s+\d{2}(\d{2})$/, (m, mon, yy) => mon.toUpperCase() + ' ' + yy));
+  const fmt = (p) => (/present|current/i.test(p) ? 'NOW' : p.replace(/^(\w{3})\w*\s+\d{2}(\d{2})$/, (m, mon, yy) => mon.toUpperCase() + ' ' + yy));
   return fmt(parts[0]) + '–' + fmt(parts[parts.length - 1]);
 };
 const bagTag = (name) => {
@@ -40,7 +40,7 @@ export function createTravelWorld({ experiences, projects, sendPostcard, contact
   const JOBS = experiences.map((x, i) => Object.assign({}, JOB_BOTTLES[i % JOB_BOTTLES.length], {
     num: String(experiences.length - i).padStart(2, '0'),
     years: shortDates(x.date),
-    status: /present/i.test(x.date) ? 'NOW' : 'LANDED',
+    status: /present|current/i.test(x.date) ? 'NOW' : 'LANDED',
     title: x.title, company: x.company_name, short: x.company_name.split(' — ')[0], date: x.date, points: x.points
   }));
   const PROJECTS = projects.map((p, i) => ({
@@ -72,6 +72,7 @@ export function createTravelWorld({ experiences, projects, sendPostcard, contact
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 2400);
+  const PHONE = window.matchMedia('(max-width: 700px)');
 
   const grad = new THREE.DataTexture(new Uint8Array([70, 160, 255]), 3, 1, THREE.RedFormat);
   grad.minFilter = THREE.NearestFilter; grad.magFilter = THREE.NearestFilter; grad.generateMipmaps = false; grad.needsUpdate = true;
@@ -644,7 +645,7 @@ export function createTravelWorld({ experiences, projects, sendPostcard, contact
     });
     g.position.set(x, y, z); g.scale.setScalar(s); parent.add(g); return g;
   }
-  const clouds = [cloud(scene, -30, 9, -20, 1.6), cloud(scene, 19, 7, -16, 1.4), cloud(scene, -36, 1, 12, 1.2), cloud(scene, 26, 4, 10, 1.3),
+  const clouds = [cloud(scene, 6, 15, -28, 1.6), cloud(scene, 19, 7, -16, 1.4), cloud(scene, 32, 0, 16, 1.2), cloud(scene, 26, 4, 10, 1.3),
     cloud(scene, 28, 12, -6, 1.6), cloud(scene, 40, 18, 6, 1.8), cloud(scene, 52, 24, -8, 2), cloud(scene, 60, 30, 4, 1.7), cloud(scene, 46, 26, 14, 1.5), cloud(scene, 70, 38, -4, 2.2)];
 
   /* ================= 2. globe ================= */
@@ -995,6 +996,8 @@ export function createTravelWorld({ experiences, projects, sendPostcard, contact
   function pour(i) {
     L.sel = i; L.t0 = performance.now();
     Array.from(rowsEl.children).forEach((b, k) => b.setAttribute('aria-pressed', k === i ? 'true' : 'false'));
+    const btn = rowsEl.children[i];
+    if (btn && PHONE.matches) rowsEl.scrollTo({ left: Math.max(0, btn.offsetLeft - 8), behavior: reduced ? 'auto' : 'smooth' });
     const j = JOBS[i];
     bubT.textContent = 'Round ' + j.num + ': one ' + j.short + ', coming right up.';
     document.getElementById('talk-meta').textContent = 'LEG ' + j.num + ' · ' + j.date.toUpperCase();
@@ -1059,6 +1062,8 @@ export function createTravelWorld({ experiences, projects, sendPostcard, contact
       .catch(() => { if (!alive) return; errEl.textContent = "That didn't go through. Email me directly at " + CONTACT_EMAIL + '.'; })
       .finally(() => { sending = false; sendBtn.disabled = false; sendBtn.textContent = 'Drop it in the mailbox'; });
   });
+  on(document.getElementById('pc-open'), 'click', () => { form.classList.add('open'); document.getElementById('pc-msg').focus({ preventScroll: true }); });
+  on(document.getElementById('pc-close'), 'click', () => form.classList.remove('open'));
   on(document.getElementById('write-again'), 'click', () => {
     sentAt = -1; form.reset(); form.style.transform = ''; form.style.opacity = '1'; form.style.pointerEvents = '';
     done.style.opacity = '0'; done.style.pointerEvents = 'none';
@@ -1082,7 +1087,7 @@ export function createTravelWorld({ experiences, projects, sendPostcard, contact
   const toArr = (obj, local) => arr.worldToLocal(obj.localToWorld(local.clone()));
 
   function sceneCam(key, narrow) {
-    if (key === 'lounge') return narrow ? [V(2.4, 3.8, 15.5), V(1.6, 2.6, 0)] : [V(3.0, 3.6, 12.5), V(0.2, 2.3, 0)];
+    if (key === 'lounge') return narrow ? [V(2.0, 3.3, 17), V(1.5, 0.95, 0)] : [V(3.0, 3.6, 12.5), V(0.2, 2.3, 0)];
     if (key === 'baggage') return narrow ? [V(0, 15, 18), V(0, -1.8, 0)] : [V(1.5, 12, 16), V(3.4, -0.6, 0.5)];
     return narrow ? [V(0.5, 4.4, 18), V(0.4, 0.6, 0)] : [V(0.4, 3.8, 15.5), V(2.6, 2.1, 0)];
   }
@@ -1165,7 +1170,8 @@ export function createTravelWorld({ experiences, projects, sendPostcard, contact
     const bl2 = blinkScale(now, 4100, 1700); dk.eyes.forEach((e) => { e.scale.y = bl2; });
     LB.neon.material.opacity = 0.85 + 0.15 * Math.sin(now / 300) * Math.sin(now / 1700);
 
-    const vis = active === 'lounge' ? 1 : 0;
+    const vis = active === 'lounge' ? smooth(0.82, 1, enter.lounge) * (1 - smooth(0, 0.25, enter.baggage)) : 0;
+    const phone = PHONE.matches;
     const place = (el, anchor, tail, oy) => {
       const s = project(lounge.localToWorld(anchor.clone()));
       const w = el.offsetWidth, h = el.offsetHeight;
@@ -1182,9 +1188,10 @@ export function createTravelWorld({ experiences, projects, sendPostcard, contact
     o = seg(2150, 2250) * (1 - seg(3150, 3300)) * vis;
     bubD.textContent = '.'.repeat(1 + Math.floor(Math.max(0, t - 2200) / 300) % 3);
     bubD.style.opacity = o; bubD.style.transform = 'translate(' + pos[0] + 'px,' + pos[1] + 'px) scale(' + pop(2150, 2400) + ')';
-    pos = place(bubK, toLounge(dk.g, V(0, 2.4, 0)), 0.4);
     o = seg(4000, 4150) * vis;
-    bubK.style.opacity = o; bubK.style.transform = 'translate(' + pos[0] + 'px,' + pos[1] + 'px) scale(' + pop(4000, 4380) + ')';
+    bubK.style.opacity = o;
+    if (phone) bubK.style.transform = 'translateY(' + (24 * (1 - smooth(4000, 4380, t))).toFixed(1) + 'px)';
+    else { pos = place(bubK, toLounge(dk.g, V(0, 2.4, 0)), 0.4); bubK.style.transform = 'translate(' + pos[0] + 'px,' + pos[1] + 'px) scale(' + pop(4000, 4380) + ')'; }
     bubK.classList.toggle('live', o > 0.5);
     Array.from(talkPts.children).forEach((el, i) => { const a = 4350 + i * 520, x = sm(a, a + 320); el.style.opacity = x; el.style.transform = 'translateY(' + (8 * (1 - x)) + 'px)'; });
   }
@@ -1246,7 +1253,7 @@ export function createTravelWorld({ experiences, projects, sendPostcard, contact
     scene.updateMatrixWorld();
     p = reduced ? targetP : p + (targetP - p) * (1 - Math.exp(-dt * 5));
     if (Math.abs(targetP - p) < 0.0002) p = targetP;
-    const narrow = camera.aspect < 0.9;
+    const narrow = PHONE.matches || camera.aspect < 0.9;
 
     active = 'sky';
     ['lounge', 'baggage', 'arrivals'].forEach((k) => { if (enter[k] > 0.5) active = k; });
@@ -1288,7 +1295,7 @@ export function createTravelWorld({ experiences, projects, sendPostcard, contact
       if (narrow) { vA.set(20, 18, 50); lA.set(0, -2, 0); } else { vA.set(24, 16, 32); lA.set(-8, -1.5, 0); }
       vB.set(px + 7, 8, narrow ? 30 : 22); lB.set(px + 2, 0.6, 0);
       vC.set(px - 8, py - 0.5, narrow ? 28 : 20); lC.set(px + 3, py + 1.5, 0);
-      vD.set(G.x, G.y, G.z + (narrow ? 46 : 38)); lD.set(G.x + (narrow ? 0 : 6.5), G.y + (narrow ? -4.5 : 2.2), G.z);
+      vD.set(G.x, G.y, G.z + (narrow ? 67 : 38)); lD.set(G.x + (narrow ? 0 : 6.5), G.y + (narrow ? -4.2 : 2.2), G.z);
       const w1 = smooth(0.06, 0.32, p), w2 = smooth(0.38, 0.58, p), w3 = smooth(0.8, 1, p), w3l = smooth(0.74, 0.9, p);
       camPos.copy(vA).lerp(vB, w1).lerp(vC, w2).lerp(vD, w3);
       camLook.copy(lA).lerp(lB, w1).lerp(lC, w2).lerp(lD, w3l);

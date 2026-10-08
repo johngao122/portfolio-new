@@ -7,6 +7,7 @@ import "./travel.css";
 
 const CONTACT_EMAIL = "johngjh123@gmail.com";
 const GITHUB_URL = "https://github.com/johngao122";
+const LINKEDIN_URL = "https://www.linkedin.com/in/johngjh";
 
 const sendPostcard = ({ name, email, message, reason }) =>
     emailjs.send(
@@ -119,10 +120,11 @@ const TravelPortfolio = () => {
                             </span>
                             <h1>John Gao</h1>
                             <p>
-                                AI and platform engineer based in Singapore. I
-                                build AI platforms and scalable backends, and
-                                collect passport stamps and local drinks along
-                                the way.
+                                AI and platform engineer in Singapore, finishing
+                                Industrial &amp; Systems Engineering at NUS with a
+                                minor in computer science. I build AI platforms
+                                and scalable backends, and collect passport
+                                stamps and local drinks along the way.
                             </p>
                             <a className="skip" href="#destinations">
                                 Skip to destinations →
@@ -316,6 +318,11 @@ const TravelPortfolio = () => {
                             <div className="pc-top">
                                 <span>POSTCARD · ARRIVALS HALL</span>
                                 <span>PAR AVION</span>
+                                <button className="pc-close" id="pc-close" type="button" aria-label="Close postcard">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" aria-hidden="true">
+                                        <path d="M6 6l12 12M18 6L6 18" />
+                                    </svg>
+                                </button>
                             </div>
                             <div className="pc-body">
                                 <div className="pc-msg">
@@ -350,6 +357,13 @@ const TravelPortfolio = () => {
                                 Drop it in the mailbox
                             </button>
                         </form>
+                        <div className="panel pc-cta">
+                            <span className="small-label">POSTCARD · ARRIVALS HALL</span>
+                            <strong>Got a role, a project or a bar I should try?</strong>
+                            <button className="send" id="pc-open" type="button">
+                                Write me a postcard
+                            </button>
+                        </div>
                         <div className="panel delivered" id="delivered" role="status" aria-live="polite" style={{ opacity: 0, pointerEvents: "none" }}>
                             <span className="stampmark">DELIVERED</span>
                             <strong style={{ fontSize: 30, letterSpacing: "-.02em", lineHeight: 1.05 }}>
@@ -363,6 +377,9 @@ const TravelPortfolio = () => {
                         <div className="links">
                             <span>OR FIND ME AT</span>
                             <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL.toUpperCase()}</a>
+                            <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
+                                LINKEDIN
+                            </a>
                             <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
                                 GITHUB
                             </a>
